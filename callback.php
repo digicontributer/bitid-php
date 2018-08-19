@@ -46,6 +46,8 @@ if($signValid && $dao->checkNonce($nonce) && ($digiid->buildURI(SERVER_URL . 'ca
         $_SESSION['user_id'] = $variables['address'];
         header("Location: user.php");
     }
-
+    $data = [ 'address' => $variables['address'], 'nonce' => $nonce ];
+    header('Content-Type: application/json');
+    echo json_encode($data)
 
 }
